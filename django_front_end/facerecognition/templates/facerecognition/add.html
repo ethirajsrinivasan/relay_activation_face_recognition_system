@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Face Recognition</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static 'css/facerecognition.css' %}">
+    </head>
+    <body>
+		<!-- <div class="container" style="margin-top: 80px;margin-left: auto ;margin-right: auto ;"> -->
+  		<div class="container">
+  			<div class="row justify-content-center">
+				
+  				<div class="col-8">
+		  			<div class="card card-inverse card-danger">
+		  				<!-- {% if error_msg %}
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+							  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							    <span aria-hidden="true">&times;</span>
+							  </button>
+			  					<strong>Error! </strong>{{error_msg}}
+							</div>
+						{% endif %} -->
+						<div class="card-block">
+							<h4 class="card-title">Hi </h4>
+							<p class="card-text">welcome to Face Detection - Add image to be recognized</p>
+							<p class="alert_msg">{% if msg %}{{msg}}{% endif %}</p>
+							<p class="alert_msg">{% if error_msg %}*{{error_msg}}{% endif %}</p>
+							<img src="https://d13yacurqjgara.cloudfront.net/users/207059/screenshots/1686151/cameraicondribbble.gif" alt="no image" style="height: 30rem; width:100%; margin-left: auto ;margin-right: auto ;">
+						</div>
+						
+						<div class="card-block" style="align-self: center;">
+							<form action="/facerecognition/add" method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+								<input type="text" name="name" placeholder="Name">
+								<input type='file' name ="myfile">
+								<button type="submit" class="btn btn-primary">Add</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    </body>
+</html>

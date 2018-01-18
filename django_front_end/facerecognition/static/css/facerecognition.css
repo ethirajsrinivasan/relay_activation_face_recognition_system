@@ -1,0 +1,14 @@
+.card {
+	margin-top: 3em;
+}
+
+.greet_image {
+	width: 30em;
+	height: 30em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alert_msg {
+	color: black;
+}
